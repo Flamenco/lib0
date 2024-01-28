@@ -27,6 +27,7 @@ export class ObservableV2 {
   }
 
   /**
+   * Add a callback function for the named event.
    * @template {keyof EVENTS & string} NAME
    * @param {NAME} name
    * @param {EVENTS[NAME]} f
@@ -37,6 +38,9 @@ export class ObservableV2 {
   }
 
   /**
+   * Add a callback function for the named event.
+   * Invoke the function once, and remove it.
+   * This function will not be removed by calling `Observable.off`
    * @template {keyof EVENTS & string} NAME
    * @param {NAME} name
    * @param {EVENTS[NAME]} f
@@ -53,6 +57,8 @@ export class ObservableV2 {
   }
 
   /**
+   * Remove the function from the observers.
+   * Calling `Observable.off` will not remove functions registered using `Observable.once`.
    * @template {keyof EVENTS & string} NAME
    * @param {NAME} name
    * @param {EVENTS[NAME]} f
